@@ -1,17 +1,17 @@
 class Map {
     constructor() {}
 
-    // selectMap(mapNumber) {
-    //     database.ref('/').update({
-    //         Map: mapNumber
-    //     });
-    // }
+    selectMap(mapId) {
+        database.ref('/').update({
+            Map: mapNumber
+        });
+    }
     
-    // getMap() {
-    //     var mapRef = database.ref('Map');
+    getMap() {
+        var mapRef = database.ref('Map');
 
-    //     mapRef.on("value", (data) => {
-    //        map = data.val();
-    //     });
-    // }
+        mapRef.on("value", (data) => {
+           map = data.val();
+        });
+    }
 }
