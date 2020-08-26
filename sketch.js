@@ -17,8 +17,8 @@ function setup() {
 }
 
 function draw() {
-   // mapSelect.selectMap(mapNumber);
-    //mapSelect.getMap();
+   mapSelect.selectMap(mapNumber);
+   mapSelect.getMap();
 
     if (map === 0) {
         background(0);
