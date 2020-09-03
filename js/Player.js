@@ -3,14 +3,14 @@ class Player {
         this.index = null;
         this.name = null;
         this.role = null;
-        this.x = 0;
-        this.y = 100;
+        this.object = null;
+        this.mapChoice = "";
     }
 
     getPlayerCount() {
         var playerCountRef = database.ref('playerCount');
         playerCountRef.on("value", (data) => {
-            playerCount = data.val()
+            playerCount = data.val();
         });
     }
 
@@ -25,15 +25,21 @@ class Player {
         database.ref(playerIndex).set({
             name:this.name,
             role: this.role,
-            x: this.x,
-            y: this.y
+            object: this.object,
+            mapChoice: this.mapChoice
         });
     }
 
     static getPlayerInfo() {
         var playerInfoRef = database.ref('players');
-        playerInfoRef.on("value",(data)=>{
+        playerInfoRef.on("value", (data)=>{
           allPlayers = data.val();
+        });
+    }
+
+    static updatePlayerRole(role, playerNum) {
+        database.ref("players/"+playerNum).update({
+            role: role
         });
     }
 }
